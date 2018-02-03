@@ -8,9 +8,15 @@ namespace ComicBookGallery.Controllers
 {
     public class ComicBooksController : Controller
     {
-        public string Detail()
+        public ActionResult Detail()
         {
-            return "Hello from the ComicBooksController!";
+            if(DateTime.Today.DayOfWeek == DayOfWeek.Saturday)
+            {   
+                // Redirect is a method inherited from the Controller class
+                return Redirect("/");
+            }
+            // Content is a method inherited from the Controller class
+            return Content("Hello from the ComicBooksController!");
         }
     }
 }
