@@ -1,30 +1,31 @@
-﻿using System;
-
-public class ComicBook
+﻿namespace ComicBookGallery.Models
 {
-	public int Id { get; set; }
-    public string SeriesTitle { get; set; }
-    public int IssueNumber { get; set; }
-    public string DescriptionHtml { get; set; }
-    public Artist[] Artists { get; set; }
-    public bool Favorite { get; set; }
-
-    public string DisplayText
+    public class ComicBook
     {
-        get
+        public int Id { get; set; }
+        public string SeriesTitle { get; set; }
+        public int IssueNumber { get; set; }
+        public string DescriptionHtml { get; set; }
+        public Artist[] Artists { get; set; }
+        public bool Favorite { get; set; }
+
+        public string DisplayText
         {
-            return SeriesTitle + " #" + IssueNumber;
+            get
+            {
+                return SeriesTitle + " #" + IssueNumber;
+            }
         }
-    }
 
-    // Comics images follow the naming scheme 
-    // series-title-issuenumber.jpg
-    public string CoverImageFileName
-    {
-        get
+        // Comics images follow the naming scheme 
+        // series-title-issuenumber.jpg
+        public string CoverImageFileName
         {
-            return SeriesTitle.Replace(" ", "-")
-                .ToLower() + "-" + IssueNumber + ".jpg";
+            get
+            {
+                return SeriesTitle.Replace(" ", "-")
+                    .ToLower() + "-" + IssueNumber + ".jpg";
+            }
         }
     }
 }
